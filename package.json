@@ -1,6 +1,6 @@
 {
   "name": "node-smsportal",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Basic Wrapper for the SMS Portal HTTP API",
   "main": "smsportal.js",
   "scripts": {
