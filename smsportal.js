@@ -46,17 +46,21 @@ var Client = function(options){
 		data = data || {};
 		data.username = username;
 		data.password = password;
+		var config = {
+			url: url,
+			method: 'POST',
+			form: data
+		}
 		return new Promise(function(resolve, reject){
-			request.post(url, data, function (err, res, body) {
-			    	console.log(body. res);
-			    	/*if (err) reject(err);
-			    	if (!data) reject('SMS Connection Error: No data was returned');
-					var result = parser.toJson(data, {object: true, coerce: true}).api_result;	
-					if (result.call_result.error.length) reject(result.call_result.error);
-					if (!result.call_result.result) reject('Sending Failed: Could not connect to the SMS gateway');
-					resolve(result);*/
-			    }
-			);
+			request(config, function (err, res, data) {
+		    	if (err) reject(err);
+		    	if (res.statusCode!==200) reject('Connection Error')
+		    	if (!data) reject('SMS Connection Error: No data was returned');
+				var result = parser.toJson(data, {object: true, coerce: true}).api_result;	
+				if (result.call_result.error.length) reject(result.call_result.error);
+				if (!result.call_result.result) reject('Sending Failed: Could not connect to the SMS gateway');
+				resolve(result);
+			});
 		});
 	}
 
