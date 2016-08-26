@@ -1,0 +1,24 @@
+{
+  "name": "node-smsportal",
+  "version": "0.1.0",
+  "description": "Basic Wrapper for the SMS Portal HTTP API",
+  "main": "smsportal.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://h3llfyre@github.com/h3llfyre/node-smsportal.git"
+  },
+  "author": "Bradley Goulding <bsgoulding@gmail.com>",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/h3llfyre/node-smsportal/issues"
+  },
+  "homepage": "https://github.com/h3llfyre/node-smsportal#readme",
+  "dependencies": {
+    "bluebird": "^3.4.3",
+    "curlrequest": "^0.5.7",
+    "xml2json": "^0.10.0"
+  }
+}
