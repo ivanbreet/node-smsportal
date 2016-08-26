@@ -11,7 +11,7 @@
     "url": "git+https://h3llfyre@github.com/h3llfyre/node-smsportal.git"
   },
   "author": "Bradley Goulding <bsgoulding@gmail.com>",
-  "license": "GPL",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/h3llfyre/node-smsportal/issues"
   },
@@ -19,6 +19,7 @@
   "dependencies": {
     "bluebird": "^3.4.3",
     "curlrequest": "^0.5.7",
+    "request": "^2.74.0",
     "xml2json": "^0.10.0"
   }
 }
