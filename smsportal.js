@@ -1,6 +1,6 @@
 'use-strict';
 
-var curl = require('curlrequest');
+var request = require('request');
 var parser = require('xml2json');
 var Promise = require('bluebird');
 
@@ -46,21 +46,17 @@ var Client = function(options){
 		data = data || {};
 		data.username = username;
 		data.password = password;
-		var options = {
-			url: url,
-			method: 'POST',
-			data: data,
-			timeout: 2000,
-		}
 		return new Promise(function(resolve, reject){
-			curl.request(options, function(err, data){
-				if (err) reject(err);
-		    	if (!data) reject('SMS Connection Error: No data was returned');
-				var result = parser.toJson(data, {object: true, coerce: true}).api_result;	
-				if (result.call_result.error.length) reject(result.call_result.error);
-				if (!result.call_result.result) reject('Sending Failed: Could not connect to the SMS gateway');
-				resolve(result);
-			});
+			request.post(url, data, function (err, res, body) {
+			    	console.log(body. res);
+			    	/*if (err) reject(err);
+			    	if (!data) reject('SMS Connection Error: No data was returned');
+					var result = parser.toJson(data, {object: true, coerce: true}).api_result;	
+					if (result.call_result.error.length) reject(result.call_result.error);
+					if (!result.call_result.result) reject('Sending Failed: Could not connect to the SMS gateway');
+					resolve(result);*/
+			    }
+			);
 		});
 	}
 
