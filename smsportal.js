@@ -1,6 +1,6 @@
 'use-strict';
 
-var curl = require('curlrequest');
+var request = require('request');
 var parser = require('xml2json');
 var Promise = require('bluebird');
 
@@ -21,7 +21,7 @@ var Client = function(options){
 		}
 
 	  	if (!options.password) {
-	    	throw new Error('password is required, please pass a username in the options hash');
+	    	throw new Error('password is required, please pass a password in the options hash');
 	  	}
 
 	  	username = options.username;
@@ -46,15 +46,15 @@ var Client = function(options){
 		data = data || {};
 		data.username = username;
 		data.password = password;
-		var options = {
+		var config = {
 			url: url,
 			method: 'POST',
-			data: data,
-			timeout: 2000,
+			form: data
 		}
 		return new Promise(function(resolve, reject){
-			curl.request(options, function(err, data){
-				if (err) reject(err);
+			request(config, function (err, res, data) {
+		    	if (err) reject(err);
+		    	if (res.statusCode!==200) reject('Connection Error')
 		    	if (!data) reject('SMS Connection Error: No data was returned');
 				var result = parser.toJson(data, {object: true, coerce: true}).api_result;	
 				if (result.call_result.error.length) reject(result.call_result.error);
