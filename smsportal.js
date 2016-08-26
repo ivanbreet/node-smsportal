@@ -21,7 +21,7 @@ var Client = function(options){
 		}
 
 	  	if (!options.password) {
-	    	throw new Error('password is required, please pass a username in the options hash');
+	    	throw new Error('password is required, please pass a password in the options hash');
 	  	}
 
 	  	username = options.username;
