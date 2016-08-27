@@ -49,7 +49,7 @@ Currently the library only supports 2 functions, checking the accounts credit ba
  
 The following examples were written in express.
 
-1. Check Credits
+Check Credits
 
 ```javascript
 	router.get('/check-credits', function(req, res,next){
@@ -68,7 +68,7 @@ The following examples were written in express.
 	});
 ```
 
-2. Send SMS to 1 Number
+Send SMS to 1 Number
 
 ```javascript
 	router.get('/send-sms', function(req, res,next){
@@ -89,7 +89,7 @@ The following examples were written in express.
 	});
 ```
 
-3. Send SMS to Multiple Number
+Send SMS to Multiple Numbers
 
 ```javascript
 	router.get('/send-sms', function(req, res,next){
